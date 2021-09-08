@@ -42,6 +42,14 @@ Severity:
 
 Description:
 
+* TROUBLE TICKET # 1:
+    * Name: Trial App - `homepage` - HTTP 500
+    * Date: 08/21/2021
+    * Subject: Trial App - Incorrect `homepage` implementation
+    * Affected Area: `trial` application's `/` API
+    * Severity: CRITICAL
+    * Description: The implementation incorrectly returns `render_template("main.html")` on the first line of the method `homepage`.  This results in the application returning HTTP 500 error.  The application/API seems to indicate it should return JSON, so, the resolution step is to remove/delete that first line.
+
 
 ## Creating SLIs and SLOs
 *TODO:* We want to create an SLO guaranteeing that our application has a 99.95% uptime per month. Name three SLIs that you would use to measure the success of this SLO.

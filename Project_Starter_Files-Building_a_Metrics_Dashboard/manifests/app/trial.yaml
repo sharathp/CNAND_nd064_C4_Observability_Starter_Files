@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: trial-app
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: trial
@@ -27,6 +29,6 @@ spec:
   selector:
     app: trial
   ports:
-    - port: 8080
+    - port: 8083
       targetPort: 8080
   type: LoadBalancer
