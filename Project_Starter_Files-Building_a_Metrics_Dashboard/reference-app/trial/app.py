@@ -1,15 +1,9 @@
 import logging
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 from jaeger_client import Config
 from jaeger_client.metrics.prometheus import PrometheusMetricsFactory
-# from opentelemetry import trace
-# from opentelemetry.exporter import jaeger
-# from opentelemetry.sdk.trace.export import BatchExportSpanProcessor
-# from opentelemetry.instrumentation.flask import FlaskInstrumentor
-# from opentelemetry.instrumentation.requests import RequestsInstrumentor
-# from opentelemetry.sdk.trace import TracerProvider
 from prometheus_flask_exporter.multiprocess import GunicornInternalPrometheusMetrics
 from flask_opentracing import FlaskTracing
 from requests_opentracing import SessionTracing
@@ -18,8 +12,6 @@ from requests_opentracing import SessionTracing
 app = Flask(__name__)
 metrics = GunicornInternalPrometheusMetrics(app)
 CORS(app)
-# FlaskInstrumentor().instrument_app(app)
-# RequestsInstrumentor().instrument()
 
 
 def init_tracer(service):
