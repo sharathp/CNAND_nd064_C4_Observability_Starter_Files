@@ -4,7 +4,7 @@ import { randomIntBetween } from "https://jslib.k6.io/k6-utils/1.1.0/index.js";
 
 export let options = {
   vus: 10,
-  duration: '1800s',
+  duration: '36000s',
 };
 
 export default function main() {
